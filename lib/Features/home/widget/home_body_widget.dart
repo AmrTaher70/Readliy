@@ -1,4 +1,5 @@
-import 'package:bookly/Features/home/widget/coustom_app_bar.dart';
+import 'package:bookly/Features/home/widget/custom_app_bar.dart';
+import 'package:bookly/Features/home/widget/custom_list_view_item.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomeWidget extends StatelessWidget {
@@ -7,7 +8,10 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      children: [CustomAppBar()],
+      children: [
+        CustomAppBar(),
+        CustomListViewItem(),
+      ],
     );
   }
 }
