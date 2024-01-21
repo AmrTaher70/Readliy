@@ -1,4 +1,4 @@
-import 'package:bookly/Features/splash/splashscreen.dart';
+import 'package:bookly/Features/home/view/home_screen.dart';
 import 'package:bookly/constans/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -16,7 +16,7 @@ class BooklyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPraimryColor),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }
