@@ -1,3 +1,4 @@
+import 'package:bookly/Features/home/widget/best_seller_list_view.dart';
 import 'package:bookly/Features/home/widget/custom_app_bar.dart';
 import 'package:bookly/Features/home/widget/featured_books_list_view.dart';
 import 'package:bookly/core/utils/styls.dart';
@@ -20,8 +21,12 @@ class HomeWidget extends StatelessWidget {
           ),
           Text(
             'Best Seller',
-            style: Style.titleMedium,
-          )
+            style: Style.textStyle18,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          BestSellerListViewItem()
         ],
       ),
     );
