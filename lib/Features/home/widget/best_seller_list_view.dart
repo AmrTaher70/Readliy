@@ -1,4 +1,5 @@
 import 'package:bookly/core/assets.dart';
+import 'package:bookly/core/utils/styls.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,22 @@ class BestSellerListViewItem extends StatelessWidget {
                           AssetsData.testBook,
                         ),
                         fit: BoxFit.fill))),
+          ),
+          const SizedBox(
+            width: 30,
+          ),
+          Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: const Text(
+                  'Harry Potter and the Golden of fire',
+                  style: Style.textStyle20,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
           )
         ],
       ),
