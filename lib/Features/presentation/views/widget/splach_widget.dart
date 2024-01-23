@@ -1,9 +1,8 @@
-import 'package:bookly/Features/home/view/home_screen.dart';
 import 'package:bookly/Features/presentation/views/widget/widgets/sliding_widget.dart';
 import 'package:bookly/core/assets.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
@@ -53,9 +52,10 @@ class _SplashWidgetState extends State<SplashWidget>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const HomeScreen(),
-          transition: Transition.fade,
-          duration: const Duration(milliseconds: 250));
+      // Get.to(() => const HomeScreen(),
+      //     transition: Transition.fade,
+      //     duration: const Duration(milliseconds: 250));
+      GoRouter.of(context).push(AppRouter.kHomeScreen);
     });
   }
 }
