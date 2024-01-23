@@ -1,6 +1,3 @@
-import 'dart:collection';
-
-import 'package:bookly/Features/home/widget/best_seller_list_view.dart';
 import 'package:bookly/Features/home/widget/best_seller_list_view_for_books.dart';
 import 'package:bookly/Features/home/widget/custom_app_bar.dart';
 import 'package:bookly/Features/home/widget/featured_books_list_view.dart';

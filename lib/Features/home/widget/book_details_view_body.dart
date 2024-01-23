@@ -1,3 +1,4 @@
+import 'package:bookly/Features/home/widget/custom_book_details_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -5,6 +6,12 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const SafeArea(
+      child: Column(
+        children: [
+          CustomBookDetailsAppBar(),
+        ],
+      ),
+    );
   }
 }
