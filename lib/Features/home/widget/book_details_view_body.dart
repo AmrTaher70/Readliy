@@ -1,3 +1,4 @@
+import 'package:bookly/Features/home/widget/books_action.dart';
 import 'package:bookly/Features/home/widget/custom_book_details_app_bar.dart';
 import 'package:bookly/Features/home/widget/custom_list_view_item.dart';
 import 'package:bookly/core/utils/styls.dart';
@@ -30,7 +31,7 @@ class BookDetailsViewBody extends StatelessWidget {
               style: Style.textStyle30.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 6,
+              height: 7,
             ),
             Opacity(
               opacity: .7,
@@ -41,6 +42,9 @@ class BookDetailsViewBody extends StatelessWidget {
                   fontStyle: FontStyle.italic,
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 18,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -66,6 +70,10 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 48,
+            ),
+            const BooksAction(),
           ],
         ),
       ),
