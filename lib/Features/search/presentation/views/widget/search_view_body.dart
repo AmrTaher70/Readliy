@@ -1,0 +1,15 @@
+import 'package:bookly/Features/search/presentation/views/widget/custom_text_filed.dart';
+import 'package:flutter/cupertino.dart';
+
+class SearchViewBody extends StatelessWidget {
+  const SearchViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        CustomTextFiled(),
+      ],
+    );
+  }
+}
