@@ -24,7 +24,9 @@ class BookDetailsViewBody extends StatelessWidget {
                   //is not response to device orientation
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: width * .2),
-                    child: const CustomBookItem(),
+                    child: const CustomBookItem(
+                        imageUrl:
+                            'https://web.facebook.com/photo/?fbid=24643286658649944&set=a.104644326274185'),
                   ),
                   const SizedBox(
                     height: 43,

@@ -15,25 +15,17 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&pXDzdJ_1E3oC=newest&q=subject:programming',
+            'volumes?Filtering=free-ebooks&pXDzdJ_1E3oC=newest&q=subject:math',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
-      }
+      List<BookModel> books = (data['items'] as List)
+          .map((item) => BookModel.fromJson(item))
+          .toList();
       return right(books);
-      // Do something with the data
+    } on DioException catch (e) {
+      return left(ServerFailure(
+          e.response?.data['message'] ?? 'Failed to fetch data from the API'));
     } catch (e) {
-      if (e is DioException) {
-        return left(
-          ServerFailure.fromDioError(e),
-        );
-      }
-      return left(
-        ServerFailure(
-          e.toString(),
-        ),
-      );
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -41,25 +33,17 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:computer science',
       );
-      List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
-      }
+      List<BookModel> books = (data['items'] as List)
+          .map((item) => BookModel.fromJson(item))
+          .toList();
       return right(books);
-      // Do something with the data
+    } on DioException catch (e) {
+      return left(ServerFailure(
+          e.response?.data['message'] ?? 'Failed to fetch data from the API'));
     } catch (e) {
-      if (e is DioException) {
-        return left(
-          ServerFailure.fromDioError(e),
-        );
-      }
-      return left(
-        ServerFailure(
-          e.toString(),
-        ),
-      );
+      return left(ServerFailure(e.toString()));
     }
   }
 }
