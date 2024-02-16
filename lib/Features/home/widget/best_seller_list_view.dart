@@ -1,36 +1,43 @@
-import 'package:bookly/core/assets.dart';
+import 'package:bookly/Features/home/widget/book_rating.dart';
+import 'package:bookly/Features/home/widget/custom_list_view_item.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/styls.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
+import '../data/models/book_model/book_model.dart';
 
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({Key? key, required this.bookModel})
+      : super(key: key);
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsScreen);
+        GoRouter.of(context)
+            .push(AppRouter.kBookDetailsScreen, extra: bookModel);
       },
       child: SizedBox(
         height: 110,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: Colors.blue,
-                      image: const DecorationImage(
-                          image: AssetImage(
-                            AssetsData.testBook,
-                          ),
-                          fit: BoxFit.fill))),
-            ),
+            CustomBookItem(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+            // AspectRatio(
+            //   aspectRatio: 2.5 / 4,
+            //   child: Container(
+            //       decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(16),
+            //           color: Colors.blue,
+            //           image: const DecorationImage(
+            //               image: AssetImage(
+            //                 AssetsData.testBook,
+            //               ),
+            //
+            //             fit: BoxFit.fill))),
+
             const SizedBox(
               width: 30,
             ),
@@ -40,8 +47,8 @@ class BestSellerListViewItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
-                    child: const Text(
-                      'Harry Potter and the Golden of fire',
+                    child: Text(
+                      bookModel.volumeInfo.title!,
                       style: Style.textStyle20,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -50,32 +57,19 @@ class BestSellerListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text('J.K Rowling', style: Style.textStyle14),
+                  Text(bookModel.volumeInfo.authors![0],
+                      style: Style.textStyle14),
                   const SizedBox(
                     height: 3,
                   ),
                   Row(
                     children: [
-                      const Text('19.99 €', style: Style.textStyle20),
+                      const Text('Free', style: Style.textStyle20),
                       const Spacer(),
-                      const Icon(
-                        FontAwesomeIcons.solidStar,
-                        color: Color(0xffFFDD4f),
-                      ),
-                      const SizedBox(
-                        width: 6.3,
-                      ),
-                      const Text(
-                        '4.8',
-                        style: Style.textStyle16,
-                      ),
-                      const SizedBox(
-                        width: 6.3,
-                      ),
-                      Text(
-                        '(2346)',
-                        style: Style.textStyle14
-                            .copyWith(color: const Color(0xff707070)),
+                      BookRating(
+                        rating:
+                            bookModel.volumeInfo.averageRating?.round() ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
                       ),
                     ],
                   ),

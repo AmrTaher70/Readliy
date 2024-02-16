@@ -1,3 +1,4 @@
+import 'package:bookly/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/Features/home/widget/books_action.dart';
 import 'package:bookly/Features/home/widget/custom_book_details_app_bar.dart';
 import 'package:bookly/Features/home/widget/custom_list_view_item.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
