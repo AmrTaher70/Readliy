@@ -57,7 +57,10 @@ class BestSellerListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  Text(bookModel.volumeInfo.authors![0],
+                  Text(bookModel.volumeInfo.authors?[0] ?? "",
+                      // state.books[index].volumeInfo.imageLinks
+                      //     ?.thumbnail ??
+                      //'',
                       style: Style.textStyle14),
                   const SizedBox(
                     height: 3,

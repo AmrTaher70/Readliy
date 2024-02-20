@@ -31,13 +31,15 @@ class _SplashWidgetState extends State<SplashWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Image.asset(AssetsData.logo),
-        SlidingText(slidingAnimation: slidingAnimation),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(AssetsData.my_Logo),
+          SlidingText(slidingAnimation: slidingAnimation),
+        ],
+      ),
     );
   }
 
@@ -52,9 +54,6 @@ class _SplashWidgetState extends State<SplashWidget>
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 3), () {
-      // Get.to(() => const HomeScreen(),
-      //     transition: Transition.fade,
-      //     duration: const Duration(milliseconds: 250));
       GoRouter.of(context).push(AppRouter.kHomeScreen);
     });
   }

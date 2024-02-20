@@ -15,7 +15,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&pXDzdJ_1E3oC=newest&q=subject:computer science',
+            'volumes?Filtering=free-ebooks&pXDzdJ_1E3oC=newest&q=subject:Science',
       );
       List<BookModel> books = (data['items'] as List)
           .map((item) => BookModel.fromJson(item))
@@ -33,7 +33,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:computer science',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Science',
       );
       List<BookModel> books = (data['items'] as List)
           .map((item) => BookModel.fromJson(item))
@@ -52,7 +52,7 @@ class HomeRepoImpl implements HomeRepo {
       {required String category}) async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:computer science',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:Science',
       );
       List<BookModel> books = (data['items'] as List)
           .map((item) => BookModel.fromJson(item))
